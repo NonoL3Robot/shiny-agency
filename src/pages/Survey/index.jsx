@@ -80,7 +80,9 @@ function Survey() {
       {isLoading ? (
         <Loader />
       ) : (
-        <QuestionContent>{surveyData[questionNumber]}</QuestionContent>
+        <QuestionContent>
+          {surveyData && surveyData[questionNumber]}
+        </QuestionContent>
       )}
       {answers && (
         <ReplyWrapper>
@@ -100,7 +102,7 @@ function Survey() {
       )}
       <LinkWrapper>
         <Link to={`/survey/${prevQuestionNumber}`}>Précédent</Link>
-        {surveyData[questionNumberInt + 1] ? (
+        {surveyData && surveyData[questionNumberInt + 1] ? (
           <Link to={`/survey/${nextQuestionNumber}`}>Suivant</Link>
         ) : (
           <Link to="/results">Résultats</Link>
