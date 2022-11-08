@@ -9,7 +9,7 @@ import Results from './pages/Results'
 import Freelances from './pages/Freelances'
 import GlobalStyle from './utils/style/GlobalStyle'
 import Footer from './components/Footer'
-import { ThemeProvider } from './utils/context'
+import { SurveyProvider, ThemeProvider } from './utils/context'
 
 const container = document.getElementById('root')
 const root = createRoot(container)
@@ -17,17 +17,19 @@ root.render(
   <React.StrictMode>
     <Router>
       <ThemeProvider>
-        <GlobalStyle />
-        <Header />
-        <Routes>
-          <Route path="*" element={<Error />} />
+        <SurveyProvider>
+          <GlobalStyle />
+          <Header />
+          <Routes>
+            <Route path="*" element={<Error />} />
 
-          <Route path="/" element={<Home />} />
-          <Route path="/survey/:questionNumber" element={<Survey />} />
-          <Route path="/results" element={<Results />} />
-          <Route path="/freelances" element={<Freelances />} />
-        </Routes>
-        <Footer />
+            <Route path="/" element={<Home />} />
+            <Route path="/survey/:questionNumber" element={<Survey />} />
+            <Route path="/results" element={<Results />} />
+            <Route path="/freelances" element={<Freelances />} />
+          </Routes>
+          <Footer />
+        </SurveyProvider>
       </ThemeProvider>
     </Router>
   </React.StrictMode>
