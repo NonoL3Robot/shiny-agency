@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Survey from './pages/Survey'
 import Header from './components/Header'
 import Error from './components/Error'
+import Profile from './pages/Profile'
 import Results from './pages/Results'
 import Freelances from './pages/Freelances'
 import GlobalStyle from './utils/style/GlobalStyle'
@@ -27,6 +28,7 @@ root.render(
             <Route path="/survey/:questionNumber" element={<Survey />} />
             <Route path="/results" element={<Results />} />
             <Route path="/freelances" element={<Freelances />} />
+            <Route path="/profile/:id" element={<Profile />} />
           </Routes>
           <Footer />
         </SurveyProvider>
